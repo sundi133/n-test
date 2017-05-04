@@ -5,8 +5,8 @@ object N_1 {
   def main(args: Array[String]) {
 
     val (input , output , cluster) = (
-              Option(args(0)).getOrElse("/Users/jsundi/Downloads/device.txt"),
-              Option(args(1)).getOrElse("/Users/jsundi/Downloads/devicedataf"),
+              Option(args(0)).getOrElse("resources/input"),
+              Option(args(1)).getOrElse("resources/output"),
               Option(args(2)).getOrElse("local")
       )
 

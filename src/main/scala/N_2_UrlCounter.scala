@@ -11,7 +11,7 @@ object N_2_UrlCounter {
   def main(args: Array[String]) {
 
     Try {
-      Source.fromFile(args(0).toString).getLines().toList
+      Source.fromFile(Option(args(0)).getOrElse("resources/data1")).getLines().toList
         .map(w => {
           val s = w.split("\\|")
           (s(0).toLong * 1000, s(1))
