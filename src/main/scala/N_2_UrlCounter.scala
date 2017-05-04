@@ -3,6 +3,10 @@ import java.util.{Date, TimeZone}
 import scala.io.Source
 import scala.util.{Failure, Success, Try}
 
+/*
+Complexity 0( nlogn ) due to sorting mainly, can use KMP to bring complexity down in linear time.
+ */
+
 object N_2_UrlCounter {
 
   val sdf = new SimpleDateFormat("MM/dd/yy");
