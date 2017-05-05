@@ -5,7 +5,7 @@ import scala.util.{Failure, Success, Try}
 
 /*
 Complexity O( nlogn ) due to sorting mainly, can use Radix sort to bring complexity down in linear time.
-O(n+k) k = 8 for date sorts and k=200 considering domain urls will never go beyond 200.
+O(n+k) k = 10 for date sorts and k=200 considering domain urls will never go beyond 200.
 The list can be passed to radix sort implementation for wherever sorting is required with the keys on which sorting will be done.
  */
 
