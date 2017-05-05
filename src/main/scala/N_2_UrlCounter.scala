@@ -4,12 +4,14 @@ import scala.io.Source
 import scala.util.{Failure, Success, Try}
 
 /*
-Complexity 0( nlogn ) due to sorting mainly, can use KMP to bring complexity down in linear time.
+Complexity O( nlogn ) due to sorting mainly, can use Radix sort to bring complexity down in linear time.
+O(n+k) k = 8 for date sorts and k=200 considering domain urls will never go beyond 200.
+The list can be passed to radix sort implementation for wherever sorting is required with the keys on which sorting will be done.
  */
 
 object N_2_UrlCounter {
 
-  val sdf = new SimpleDateFormat("MM/dd/yy");
+  val sdf = new SimpleDateFormat("MM/dd/yyyy");
   sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
 
   def main(args: Array[String]) {
