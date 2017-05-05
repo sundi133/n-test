@@ -1,5 +1,6 @@
 import java.text.SimpleDateFormat
 import java.util.{Date, TimeZone}
+
 import scala.io.Source
 import scala.util.{Failure, Success, Try}
 
@@ -13,25 +14,23 @@ object N_2_UrlCounter {
 
   val sdf = new SimpleDateFormat("MM/dd/yyyy");
   sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-
+  
   def main(args: Array[String]) {
 
     Try {
       Source.fromFile(Option(args(0)).getOrElse("resources/data1")).getLines().toList
         .map(w => {
           val s = w.split("\\|")
-          (s(0).toLong * 1000, s(1))
-        })
-        .map(w => (sdf.format(new Date(w._1)), w._2))
-        .groupBy(w => w._1 + "|" + w._2)
+          (sdf.format(new Date(s(0).toLong * 1000l)), s(1))
+        }).groupBy(w => w._1 + "|" + w._2)
         .map(w => {
           val d = w._1.split("\\|")
           (d(0), d(1), w._2.size)
         })
-        .toList.sortWith( _._1 > _._1 )
-        .groupBy(w => w._1)
+        .groupBy(_._1)
+        .toList.sortWith( _._1  < _._1 )
         .map(w => {
-          println(w._1 +" GMT")
+          println( w._1 +" GMT")
           w._2.toList
             .sortWith(_._3 > _._3)
             .foreach(w => {
