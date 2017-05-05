@@ -14,7 +14,7 @@ object N_2_UrlCounter {
 
   val sdf = new SimpleDateFormat("MM/dd/yyyy");
   sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-  
+
   def main(args: Array[String]) {
 
     Try {
